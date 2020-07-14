@@ -126,7 +126,7 @@ class Usuario
 	 	}
 	 }
 
-	 public function update($login, $password){
+	 public function update($login = "", $password = ""){
 
 	 	$this->setDeslogin($login);
 	 	$this->setDessenha($password);
@@ -138,6 +138,21 @@ class Usuario
 	 		':ID'=>$this->getIdusuario()
 
 	 	));
+
+	 }
+
+	 public function delete(){
+	 	
+	 	$sql = new Sql();
+
+	 	$sql->query("DELETE FROM usuario WHERE id = :ID", array(
+	 		':ID'=>$this->getIdusuario()
+	 	));
+
+	 	$this->setIdusuario(0);
+	 	$this->setDeslogin("");
+	 	$this->setDessenha("");
+	 	$this->setDtcadastro(new dateTime());
 
 	 }
 
