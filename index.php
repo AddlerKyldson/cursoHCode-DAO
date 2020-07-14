@@ -17,8 +17,23 @@ require_once("config.php");
 
 //Carrega uma lista de Usuários buscando pelo login e senha
 
+//$usuario = new Usuario();
+//$usuario->login("addler", "1910525");
+//echo $usuario;
+
+//Insere um Usuário
+
+//$aluno = new Usuario("Aluno", "123456");
+//$aluno->insert();
+//echo $aluno;
+
 $usuario = new Usuario();
-$usuario->login("addler", "1910525");
+
+$usuario->loadById(97);
+
+$usuario->update("professor", "1234567");
 
 echo $usuario;
+
+
 ?>
